@@ -1,0 +1,6 @@
+ID_PhongTro,TenPhong,SoNguoiToiDa,SoNguoiHienTai,GiaThue
+101,Phong 101,4,3,1500000
+102,Phong 102,4,4,1500000
+103,Phong 103,3,2,1300000
+104,Phong 104,2,1,1200000
+105,Phong 105,4,4,1500000

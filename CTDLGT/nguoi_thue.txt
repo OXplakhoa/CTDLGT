@@ -1,0 +1,6 @@
+ID_NguoiThue,Ten,SoDienThoai,Email
+1,Nguyen Van A,0912345678,nguyenvana@gmail.com
+2,Tran Thi B,0912345679,tranthib@gmail.com
+3,Le Van C,0912345680,levanc@gmail.com
+4,Pham Thi D,0912345681,phamthid@gmail.com
+5,Hoang Van E,0912345682,hoangvane@gmail.com

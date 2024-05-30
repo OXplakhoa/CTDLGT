@@ -1,0 +1,44 @@
+Đề tài 19: Tìm hiểu TreeSet trong java: Cấu trúc dữ liệu, diễn giải các thao tác cơ bản của TreeSet tương ứng trong java.
+Cài đặt các ví dụ minh họa cho các thao tác đó trên java. Sử dụng ngôn ngữ C/C++, xây dựng các cây Nhị phân tìm kiếm
+để viết chương trình quản lý việc cho Thuê phòng trọ của một hộ gia đình.
+
+
+- Tìm hiểu và vận dụng các kiến thức đã học về: cây nhị phân tìm kiếm, dữ liệu có cấu trúc, các giải thuật tìm
+kiếm và sắp xếp, đọc ghi file dữ liệu (dạng text file), ...
+- Phát huy khả năng tự tìm kiếm, đọc tài liệu của sinh viên.
+- Sinh viên học cách tự khái quát, trừu tượng kiến thức mới dựa trên nền kiến thức cũ.
+- Biết cách viết một bài tìm hiểu, bài nghiên cứu ở mức đơn giản.
+- Cải thiện khả năng thuyết trình của sinh viên.
+- Học cách làm việc nhóm.
+Nội dung thực hiện:
+- Sinh viên tìm hiểu và trình bày giải thuật của các thao tác gồm: ý tưởng, ví dụ minh họa và cài đặt các giải thuật
+cho các thao tác.
+ Cấu tạo của TreeSet
+ Cơ chế hoạt động của TreeSet
+ Khởi tạo TreeSet
+ Thêm, xóa phần tử trong TreeSet,
+ Tìm kiếm thông tin trong TreeSet
+ Duyệt các phần tử trong TreeSet và các thao tác khác,
+- Viết tài liệu nghiên cứu.
+- Xây dựng chương trình minh họa cho đề tài.
+- Tạo tài liệu thuyết trình (power point)
+- Báo cáo các nội dung thực hiện
+- Xây dựng Cây Nhị phân tìm kiếm để viết chương trình sử dụng quản lý việc cho Thuê phòng trọ của một hộ gia
+đình bằng ngôn ngữ C/C++. Gồm các yêu cầu sau:
+1. Đọc được thông tin Người thuê, Phòng trọ, CT hóa đơn, Hóa đơn từ các file dữ liệu tương ứng khi khởi
+chạy chương trình.
+2. Ghi (lưu) được thông tin Người thuê, Phòng trọ, Hóa đơn, và CT Hóa đơn bổ sung vào các file dữ liệu
+tương ứng khi phát sinh các nghiệp vụ liên quan.
+3. Thêm thông tin một Phòng trọ mới (chưa tồn tại trước đây), lưu vào file tương ứng.
+4. Thêm một Hóa đơn và các CT Hóa đơn tương ứng khi có khách đến thuê phòng, đồng thời lưu thêm thông
+tin khách hàng (nếu là khách hàng mới) vào các file tương ứng.
+5. Sắp xếp các Hóa đơn giảm dần theo Tổng tiền.
+6. Sắp xếp các Hóa đơn tăng dần theo Tên người thuê, nếu trùng tên thì sắp tăng theo Mã người thuê.
+7. Cho biết thông tin các Phòng thuê có số người thuê đông nhất (nhiều người ở cùng phòng nhất).
+8. Tìm kiếm và cho biết thông tin của một Hóa đơn cùng với các CT Hóa đơn tương ứng khi biết Số hóa đơn.
+9. Liệt kê danh sách chi tiết các Hóa đơn khi biết Mã khách hàng.
+10. Thống kê được doanh thu cho thuê phòng theo ngày/ tháng/ quý/ năm.
+Lưu ý:
+(1)Các file text dữ liệu phải có ít nhất 10 dòng dữ liệu phù hợp với nghiệp vụ.
+(2)Phải có bảng phân công công việc cụ thể cho từng thành viên trong nhóm.
+(3)Nhóm sinh viên có thể đề xuất bổ sung thêm các chức năng để chương trình được hoàn chỉnh
