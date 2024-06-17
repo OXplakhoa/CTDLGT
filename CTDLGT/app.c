@@ -292,41 +292,63 @@ void writeNguoiThue(const char *filename, Node *root) {
     fclose(file);
 }
 
-// Hàm thêm thông tin phòng trọ mới (lưu vào file)
-void addPhongTro(const char *filename, PhongTro phongTro) {
-    FILE *file = fopen(filename, "a");
+void writePhongTroNode(FILE *file, PhongTroNode *root) {
+    if (root != NULL) {
+        writePhongTroNode(file, root->left);
+        fprintf(file, "%d,%s,%d,%d,%d\n", root->data.id, root->data.name, root->data.maxPeople, root->data.currentPeople, root->data.rentPrice);
+        writePhongTroNode(file, root->right);
+    }
+}
+
+void writePhongTro(const char *filename, PhongTroNode *root) {
+    FILE *file = fopen(filename, "w");
     if (file == NULL) {
-        printf("Could not open file %s\n", filename);
+        printf("Khong the mo file %s\n", filename);
         return;
     }
-
-    fprintf(file, "%d,%s,%d,%d,%d\n", phongTro.id, phongTro.name, phongTro.maxPeople, phongTro.currentPeople, phongTro.rentPrice);
+    fprintf(file, "ID,Name,MaxPeople,CurrentPeople,RentPrice\n");
+    writePhongTroNode(file, root);
     fclose(file);
 }
 
-// Hàm thêm thông tin hóa đơn mới (lưu vào file)
-void addHoaDon(const char *filename, HoaDon hoaDon) {
-    FILE *file = fopen(filename, "a");
+void writeHoaDonNode(FILE *file, HoaDonNode *root) {
+    if (root != NULL) {
+        writeHoaDonNode(file, root->left);
+        fprintf(file, "%d,%d,%s,%.2f\n", root->data.id, root->data.renterId, root->data.date, root->data.totalAmount);
+        writeHoaDonNode(file, root->right);
+    }
+}
+
+void writeHoaDon(const char *filename, HoaDonNode *root) {
+    FILE *file = fopen(filename, "w");
     if (file == NULL) {
-        printf("Could not open file %s\n", filename);
+        printf("Khong the mo file %s\n", filename);
         return;
     }
-
-    fprintf(file, "%d,%d,%s,%.2f\n", hoaDon.id, hoaDon.renterId, hoaDon.date, hoaDon.totalAmount);
+    fprintf(file, "ID,RenterId,Date,TotalAmount\n");
+    writeHoaDonNode(file, root);
     fclose(file);
 }
 
-// Hàm thêm thông tin chi tiết hóa đơn mới (lưu vào file)
-void addChiTietHoaDon(const char *filename, ChiTietHoaDon ctHoaDon) {
-    FILE *file = fopen(filename, "a");
+void writeChiTietHoaDonNode(FILE *file, ChiTietHoaDonNode *root) {
+    if (root != NULL) {
+        writeChiTietHoaDonNode(file, root->left);
+        fprintf(file, "%d,%d,%s,%.2f\n", root->data.invoiceId, root->data.roomId, root->data.month, root->data.amount);
+        writeChiTietHoaDonNode(file, root->right);
+    }
+}
+
+void writeChiTietHoaDon(const char *filename, ChiTietHoaDonNode *root) {
+    FILE *file = fopen(filename, "w");
     if (file == NULL) {
-        printf("Could not open file %s\n", filename);
+        printf("Khong the mo file %s\n", filename);
         return;
     }
-
-    fprintf(file, "%d,%d,%s,%.2f\n", ctHoaDon.invoiceId, ctHoaDon.roomId, ctHoaDon.month, ctHoaDon.amount);
+    fprintf(file, "InvoiceId,RoomId,Month,Amount\n");
+    writeChiTietHoaDonNode(file, root);
     fclose(file);
 }
+
 
 // Hàm in thông tin Người thuê từ BST
 void printInOrder(Node* root) {
@@ -701,17 +723,20 @@ int main() {
             }
             case 2: {
                 PhongTro phongTro = inputPhongTro();
-                addPhongTro("phong_tro.txt", phongTro);
+                phongTroRoot = themPhongTroNode(phongTroRoot,phongTro);
+                writePhongTro("phong_tro.txt", phongTroRoot);
                 break;
             }
             case 3: {
                 HoaDon hoaDon = inputHoaDon();
-                addHoaDon("hoa_don.txt", hoaDon);
+                hoaDonRoot = themHoaDonNode(hoaDonRoot,hoaDon);
+                writeHoaDon("hoa_don.txt", hoaDonRoot);
                 break;
             }
             case 4: {
                 ChiTietHoaDon ctHoaDon = inputChiTietHoaDon();
-                addChiTietHoaDon("ct_hoa_don.txt", ctHoaDon);
+                chiTietHoaDonRoot = themCTHoaDonNode(chiTietHoaDonRoot,ctHoaDon);
+                writeChiTietHoaDon("ct_hoa_don.txt", chiTietHoaDonRoot);
                 break;
             }
             case 5: {
@@ -751,7 +776,7 @@ int main() {
             break;
             }
             case 9:
-                printf("Nhap ID khach hang: ");
+                printf("Nhap ID nguoi thue: ");
                 int renterId;
                 scanf("%d", &renterId);
                 lietKeChiTietHoaDon(nguoiThueRoot, hoaDonRoot, chiTietHoaDonRoot, renterId);
